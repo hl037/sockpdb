@@ -68,8 +68,8 @@ class SockPDB(object):
       self.server.close()
       self._pdb = None
 
-  @staticmethod
-  def get_host_port():
+  @classmethod
+  def get_host_port(cls):
     host = cls.host
     port = cls.port
     if host is None:
