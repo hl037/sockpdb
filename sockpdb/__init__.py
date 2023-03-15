@@ -10,6 +10,8 @@ class SockPDB(object):
   Used to provide debug facilities you can access with netcat or telnet.
   """
 
+  host = None
+  port = None
   singleton = None
   enabled = None
   blocking = None
@@ -67,7 +69,9 @@ class SockPDB(object):
       self._pdb = None
 
   @staticmethod
-  def get_host_port(host=None, port=None):
+  def get_host_port():
+    host = cls.host
+    port = cls.port
     if host is None:
       host = os.getenv('SOCKPDB_HOST', '127.0.0.1')
     if port is None:
